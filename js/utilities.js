@@ -1284,10 +1284,14 @@
             if (value === null) {
                 return '';
             }
-
-            // Remove fractional digits
-            value = Math.round(value);
-
+            // for array Types
+            if (value instanceof Array) {
+              for(i=0; i < value.length; i++)
+                value[i] = Math.round(value[i]);
+            }else{
+              // Remove fractional digits
+              value = Math.round(value);
+            }
             // Add comma separators
             return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },

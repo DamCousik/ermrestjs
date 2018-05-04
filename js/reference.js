@@ -387,7 +387,10 @@
                     }
 
                     var col = _getFacetSourceColumn(obj.source, self.table, module._constraintNames);
-
+                    //No facet support for array type
+                    if (col.type._isArray){
+                      return false;
+                    }
                     if (col && module._facetUnsupportedTypes.indexOf(col.type.name) === -1) {
                         return col;
                     }
@@ -400,7 +403,7 @@
                     }
 
                     // we're not supporting facet for asset or composite keys (composite foreignKeys is supported).
-                    if ((col.isKey && !col._simple) || col.isAsset) {
+                    if ((col.isKey && !col._simple) || col.isAsset || col.type._isArray) { //no support for array types
                         return false;
                     }
 
