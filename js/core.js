@@ -1765,12 +1765,25 @@
 
             if (display.isPreformat) {
                 try {
+                  //Array support
+                  if (this.type._isArray){
+                    for (var k=0; k < data.length; k++){
+                      data[k] = module._printf(display.preformatConfig, data[k], this.type.rootName);
+                    }
+                    return data;
+                  }
                     return module._printf(display.preformatConfig, data, this.type.rootName);
                 } catch(e) {
                     console.log(e);
                 }
             }
-
+            //Array support
+            if (this.type._isArray){
+              for (var j=0; j < data.length; j++){
+                data[j] = _formatValueByType(this.type, data[j], options);
+              }
+              return data;
+            }
             return _formatValueByType(this.type, data, options);
         };
 

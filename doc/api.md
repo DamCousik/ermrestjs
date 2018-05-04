@@ -272,6 +272,7 @@ to use for ERMrest JavaScript agents.
         * [.aggregate](#ERMrest.Reference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
         * [.displayname](#ERMrest.Reference+displayname) : <code>object</code>
         * [.uri](#ERMrest.Reference+uri) : <code>string</code>
+        * [.session](#ERMrest.Reference+session)
         * [.table](#ERMrest.Reference+table) : [<code>Table</code>](#ERMrest.Table)
         * [.columns](#ERMrest.Reference+columns) : [<code>Array.&lt;ReferenceColumn&gt;</code>](#ERMrest.ReferenceColumn)
         * [.facetColumns](#ERMrest.Reference+facetColumns) ⇒ [<code>Array.&lt;FacetColumn&gt;</code>](#ERMrest.FacetColumn)
@@ -457,6 +458,7 @@ to use for ERMrest JavaScript agents.
         * [.aggregate](#ERMrest.AttributeGroupReference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
         * [.displayname](#ERMrest.AttributeGroupReference+displayname) : <code>object</code>
         * [.columns](#ERMrest.AttributeGroupReference+columns) : <code>Array.&lt;AttributeGroupColumn&gt;</code>
+        * [.session](#ERMrest.AttributeGroupReference+session)
         * [.uri](#ERMrest.AttributeGroupReference+uri) : <code>string</code>
         * [.read([limit], contextHeaderParams)](#ERMrest.AttributeGroupReference+read) ⇒ <code>ERMRest.AttributeGroupPage</code>
     * [.AttributeGroupPage](#ERMrest.AttributeGroupPage)
@@ -537,6 +539,7 @@ to use for ERMrest JavaScript agents.
         * [.aggregate](#ERMrest.Reference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
         * [.displayname](#ERMrest.Reference+displayname) : <code>object</code>
         * [.uri](#ERMrest.Reference+uri) : <code>string</code>
+        * [.session](#ERMrest.Reference+session)
         * [.table](#ERMrest.Reference+table) : [<code>Table</code>](#ERMrest.Table)
         * [.columns](#ERMrest.Reference+columns) : [<code>Array.&lt;ReferenceColumn&gt;</code>](#ERMrest.ReferenceColumn)
         * [.facetColumns](#ERMrest.Reference+facetColumns) ⇒ [<code>Array.&lt;FacetColumn&gt;</code>](#ERMrest.FacetColumn)
@@ -572,6 +575,7 @@ to use for ERMrest JavaScript agents.
         * [.aggregate](#ERMrest.AttributeGroupReference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
         * [.displayname](#ERMrest.AttributeGroupReference+displayname) : <code>object</code>
         * [.columns](#ERMrest.AttributeGroupReference+columns) : <code>Array.&lt;AttributeGroupColumn&gt;</code>
+        * [.session](#ERMrest.AttributeGroupReference+session)
         * [.uri](#ERMrest.AttributeGroupReference+uri) : <code>string</code>
         * [.read([limit], contextHeaderParams)](#ERMrest.AttributeGroupReference+read) ⇒ <code>ERMRest.AttributeGroupPage</code>
     * [.AttributeGroupPage](#ERMrest.AttributeGroupPage) : <code>object</code>
@@ -2430,6 +2434,7 @@ Constructor for a ParsedFilter.
     * [.aggregate](#ERMrest.Reference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
     * [.displayname](#ERMrest.Reference+displayname) : <code>object</code>
     * [.uri](#ERMrest.Reference+uri) : <code>string</code>
+    * [.session](#ERMrest.Reference+session)
     * [.table](#ERMrest.Reference+table) : [<code>Table</code>](#ERMrest.Table)
     * [.columns](#ERMrest.Reference+columns) : [<code>Array.&lt;ReferenceColumn&gt;</code>](#ERMrest.ReferenceColumn)
     * [.facetColumns](#ERMrest.Reference+facetColumns) ⇒ [<code>Array.&lt;FacetColumn&gt;</code>](#ERMrest.FacetColumn)
@@ -2519,6 +2524,17 @@ NOTE: It is not understanable by ermrest, and it also doesn't have the modifiers
 Should not be used for sending requests to ermrest, use this.location.ermrestCompactUri instead.
 
 **Kind**: instance property of [<code>Reference</code>](#ERMrest.Reference)  
+<a name="ERMrest.Reference+session"></a>
+
+#### reference.session
+The session object from the server
+
+**Kind**: instance property of [<code>Reference</code>](#ERMrest.Reference)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| session | <code>Object</code> | the session object |
+
 <a name="ERMrest.Reference+table"></a>
 
 #### reference.table : [<code>Table</code>](#ERMrest.Table)
@@ -4540,6 +4556,7 @@ Given number of buckets, min and max will return bin of results.
     * [.aggregate](#ERMrest.AttributeGroupReference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
     * [.displayname](#ERMrest.AttributeGroupReference+displayname) : <code>object</code>
     * [.columns](#ERMrest.AttributeGroupReference+columns) : <code>Array.&lt;AttributeGroupColumn&gt;</code>
+    * [.session](#ERMrest.AttributeGroupReference+session)
     * [.uri](#ERMrest.AttributeGroupReference+uri) : <code>string</code>
     * [.read([limit], contextHeaderParams)](#ERMrest.AttributeGroupReference+read) ⇒ <code>ERMRest.AttributeGroupPage</code>
 
@@ -4595,6 +4612,17 @@ TODO not sure if this sis needed
 Visible columns
 
 **Kind**: instance property of [<code>AttributeGroupReference</code>](#ERMrest.AttributeGroupReference)  
+<a name="ERMrest.AttributeGroupReference+session"></a>
+
+#### attributeGroupReference.session
+The session object from the server
+
+**Kind**: instance property of [<code>AttributeGroupReference</code>](#ERMrest.AttributeGroupReference)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| session | <code>Object</code> | the session object |
+
 <a name="ERMrest.AttributeGroupReference+uri"></a>
 
 #### attributeGroupReference.uri : <code>string</code>
@@ -5335,6 +5363,7 @@ get PathColumn object by column name
     * [.aggregate](#ERMrest.Reference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
     * [.displayname](#ERMrest.Reference+displayname) : <code>object</code>
     * [.uri](#ERMrest.Reference+uri) : <code>string</code>
+    * [.session](#ERMrest.Reference+session)
     * [.table](#ERMrest.Reference+table) : [<code>Table</code>](#ERMrest.Table)
     * [.columns](#ERMrest.Reference+columns) : [<code>Array.&lt;ReferenceColumn&gt;</code>](#ERMrest.ReferenceColumn)
     * [.facetColumns](#ERMrest.Reference+facetColumns) ⇒ [<code>Array.&lt;FacetColumn&gt;</code>](#ERMrest.FacetColumn)
@@ -5424,6 +5453,17 @@ NOTE: It is not understanable by ermrest, and it also doesn't have the modifiers
 Should not be used for sending requests to ermrest, use this.location.ermrestCompactUri instead.
 
 **Kind**: instance property of [<code>Reference</code>](#ERMrest.Reference)  
+<a name="ERMrest.Reference+session"></a>
+
+#### reference.session
+The session object from the server
+
+**Kind**: instance property of [<code>Reference</code>](#ERMrest.Reference)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| session | <code>Object</code> | the session object |
+
 <a name="ERMrest.Reference+table"></a>
 
 #### reference.table : [<code>Table</code>](#ERMrest.Table)
@@ -5895,6 +5935,7 @@ NOTE:
     * [.aggregate](#ERMrest.AttributeGroupReference+aggregate) : [<code>ReferenceAggregateFn</code>](#ERMrest.ReferenceAggregateFn)
     * [.displayname](#ERMrest.AttributeGroupReference+displayname) : <code>object</code>
     * [.columns](#ERMrest.AttributeGroupReference+columns) : <code>Array.&lt;AttributeGroupColumn&gt;</code>
+    * [.session](#ERMrest.AttributeGroupReference+session)
     * [.uri](#ERMrest.AttributeGroupReference+uri) : <code>string</code>
     * [.read([limit], contextHeaderParams)](#ERMrest.AttributeGroupReference+read) ⇒ <code>ERMRest.AttributeGroupPage</code>
 
@@ -5950,6 +5991,17 @@ TODO not sure if this sis needed
 Visible columns
 
 **Kind**: instance property of [<code>AttributeGroupReference</code>](#ERMrest.AttributeGroupReference)  
+<a name="ERMrest.AttributeGroupReference+session"></a>
+
+#### attributeGroupReference.session
+The session object from the server
+
+**Kind**: instance property of [<code>AttributeGroupReference</code>](#ERMrest.AttributeGroupReference)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| session | <code>Object</code> | the session object |
+
 <a name="ERMrest.AttributeGroupReference+uri"></a>
 
 #### attributeGroupReference.uri : <code>string</code>
