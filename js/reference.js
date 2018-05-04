@@ -388,7 +388,7 @@
 
                     var col = _getFacetSourceColumn(obj.source, self.table, module._constraintNames);
                     //No facet support for array type
-                    if (col.type._isArray){
+                    if (col && col.type && col.type._isArray){
                       return false;
                     }
                     if (col && module._facetUnsupportedTypes.indexOf(col.type.name) === -1) {
