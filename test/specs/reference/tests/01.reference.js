@@ -212,6 +212,10 @@ exports.execute = function (options) {
                     return e.id == "9000";
                 })[0].RID;
                 expect(tuple.uniqueId).toBe(rid, "tuple.uniqueId is incorrect");
+                var logInfo = {
+                    rid: rid
+                }
+                expect(tuple.defaultLogInfo).toEqual(logInfo, "tuple.defaultLogInfo is incorrect")
             });
 
             it('tuple.copy should create a shallow copy of the tuple except for the data.', function() {

@@ -372,6 +372,7 @@ to use for ERMrest JavaScript agents.
         * [.isHTML](#ERMrest.Tuple+isHTML) : <code>Array.&lt;boolean&gt;</code>
         * [.displayname](#ERMrest.Tuple+displayname) : <code>string</code>
         * [.uniqueId](#ERMrest.Tuple+uniqueId) : <code>string</code>
+        * [.defaultLogInfo](#ERMrest.Tuple+defaultLogInfo) : <code>Object</code>
         * [.citation](#ERMrest.Tuple+citation) : <code>Object</code>
         * [.templateVariables](#ERMrest.Tuple+templateVariables) : <code>Object</code>
         * [.update()](#ERMrest.Tuple+update) ⇒ <code>Promise</code>
@@ -3548,6 +3549,7 @@ It will return:
     * [.isHTML](#ERMrest.Tuple+isHTML) : <code>Array.&lt;boolean&gt;</code>
     * [.displayname](#ERMrest.Tuple+displayname) : <code>string</code>
     * [.uniqueId](#ERMrest.Tuple+uniqueId) : <code>string</code>
+    * [.defaultLogInfo](#ERMrest.Tuple+defaultLogInfo) : <code>Object</code>
     * [.citation](#ERMrest.Tuple+citation) : <code>Object</code>
     * [.templateVariables](#ERMrest.Tuple+templateVariables) : <code>Object</code>
     * [.update()](#ERMrest.Tuple+update) ⇒ <code>Promise</code>
@@ -3707,6 +3709,18 @@ console.log("This tuple has a displayable name of ", tuple.displayname.value);
 #### tuple.uniqueId : <code>string</code>
 The unique identifier for this tuple composed of the values for each
 of the shortest key columns concatenated together by an '_'
+
+**Kind**: instance property of [<code>Tuple</code>](#ERMrest.Tuple)  
+<a name="ERMrest.Tuple+defaultLogInfo"></a>
+
+#### tuple.defaultLogInfo : <code>Object</code>
+The default information that we want to be logged, specific to the tuple
+The rest of the log info can be gathered from the reference.
+This includes:
+ - rid - the row identifier
+    1. If shortest key is RID column, return RID value
+    2. If simple shortest key (not RID), return { colname: value }
+    3. If complex shortest key, return { colname: val1, colname2: val2 }
 
 **Kind**: instance property of [<code>Tuple</code>](#ERMrest.Tuple)  
 <a name="ERMrest.Tuple+citation"></a>

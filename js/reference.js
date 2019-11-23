@@ -4943,6 +4943,36 @@
         },
 
         /**
+         * The default information that we want to be logged, specific to the tuple
+         * The rest of the log info can be gathered from the reference.
+         * This includes:
+         *  - rid - the row identifier
+         *     1. If shortest key is RID column, return RID value
+         *     2. If simple shortest key (not RID), return { colname: value }
+         *     3. If complex shortest key, return { colname: val1, colname2: val2 }
+         * @type {Object}
+         */
+        get defaultLogInfo() {
+            var obj = {};
+
+            for (var i = 0; i < this._pageRef.table.shortestKey.length; i++) {
+                keyName = this._pageRef.table.shortestKey[i].name;
+
+                // _systemColumns[0] = "RID"
+                if (keyName == module._systemColumns[0]) {
+                    obj.rid = this.data[keyName];
+                } else {
+                    // handles simple and complex shortest key when not RID
+                    if (i == 0) obj.rid = {};
+                    obj.rid[keyName] = this.data[keyName];
+                }
+            }
+
+
+            return obj;
+        },
+
+        /**
          * The citation that should be used for this tuple.
          * - if citation has wait-for, it will return false.
          * - If the annoation is missing or is invalid, it will return null.
