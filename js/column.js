@@ -1538,6 +1538,11 @@ Object.defineProperty(PseudoColumn.prototype, "reference", {
             // attach the current pseudo-column to the reference
             self._reference.pseudoColumn = self;
 
+            // make sure data-source is available on the reference
+            // TODO this has been added to be consistent with the old related reference apis
+            // other apis are not available, maybe we should add them as well? (origFKR, etc.)
+            self._reference.dataSource = self.dataSource;
+
             // make sure the refernece has the correct displayname
             if (self.hasPath) {
                 self._reference._displayname = self.displayname;
@@ -2982,10 +2987,10 @@ FacetColumn.prototype = {
 
             // TODO might be able to improve this
             if (typeof loc.searchTerm === "string") {
-                jsonFilters.push({"source": "*", "search": [loc.searchTerm]});
+                jsonFilters.push({"sourcekey": module._specialSourceDefinitions.SEARCH_BOX, "search": [loc.searchTerm]});
             }
 
-            var newLoc = module.parse(loc.compactUri);
+            var newLoc = module.parse(loc.compactUri, loc.catalogObject);
 
             //get all the filters from other facetColumns
             if (loc.facets) {
@@ -3846,7 +3851,7 @@ FacetColumn.prototype = {
 
         // TODO might be able to improve this
         if (typeof loc.searchTerm === "string") {
-            jsonFilters.push({"source": "*", "search": [this.reference.location.searchTerm]});
+            jsonFilters.push({"sourcekey": module._specialSourceDefinitions.SEARCH_BOX, "search": [this.reference.location.searchTerm]});
         }
 
         // apply the hidden facets
