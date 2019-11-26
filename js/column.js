@@ -1845,6 +1845,15 @@ Object.defineProperty(ForeignKeyPseudoColumn.prototype, "name", {
     }
 });
 
+Object.defineProperty(ForeignKeyPseudoColumn.prototype, "constraintName", {
+    get: function () {
+        if (this._constraintName === undefined) {
+            this._constraintName = this.foreignKey._constraintName;
+        }
+        return this._constraintName;
+    }
+});
+
 /**
  * 1. If `to_name` in `foreign key` annotation is available, use it as the displayname.
  * 2. Otherwise,
